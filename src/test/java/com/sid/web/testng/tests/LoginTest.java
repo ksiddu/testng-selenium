@@ -8,25 +8,25 @@ public class LoginTest extends BaseTest {
 
 	@Test
 	public void validLogin() {
-		HomePage homePage = new HomePage(driver);
-		LoginPage loginPage = new LoginPage(driver);
-		DashBoardPage dashBoardPage = new DashBoardPage(driver);
+		//HomePage homePage = new HomePage(driver);
+		//LoginPage loginPage = new LoginPage(driver);
+		//DashBoardPage dashBoardPage = new DashBoardPage(driver);
 		// Click on sign in link
 		String loginUrl = prop.getValue("login_url");
-		homePage.goToUrl(loginUrl);
+		pages.homePage.goToUrl(loginUrl);
 
-		homePage.verifyTitle(prop.getValue("homepage_title"));
+		pages.homePage.verifyTitle(prop.getValue("homepage_title"));
 
-		homePage.clickSignInLink();
-		loginPage.verifyTitle(prop.getValue("loginpage_title"));
+		pages.homePage.clickSignInLink();
+		pages.loginPage.verifyTitle(prop.getValue("loginpage_title"));
 
-		loginPage.login(prop.getValue("email"), prop.getValue("password"));
+		pages.loginPage.login(prop.getValue("email"), prop.getValue("password"));
 
-		dashBoardPage.verifyTitle(prop.getValue("dashboardpage_title"));
-		dashBoardPage.verifyUserName(prop.getValue("username"));
+		pages.dashBoardPage.verifyTitle(prop.getValue("dashboardpage_title"));
+		pages.dashBoardPage.verifyUserName(prop.getValue("username"));
 
-		dashBoardPage.logout();
-		loginPage.verifyTitle(prop.getValue("loginpage_title"));
+		pages.dashBoardPage.logout();
+		pages.loginPage.verifyTitle(prop.getValue("loginpage_title"));
 
 	}
 }
