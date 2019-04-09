@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
+import com.sid.web.testng.core.BasePage;
+
 public class LoginPage extends BasePage {
 
 	public LoginPage(WebDriver driver) {
@@ -24,8 +26,8 @@ public class LoginPage extends BasePage {
 
 	@FindBy(css = ".center_column > .alert.alert-danger")
 	private WebElement eleErrorMsg;
-	
-	String expectedAuthFailMsg =  "There is 1 error\n" + "Authentication failed.";
+
+	String expectedAuthFailMsg = "There is 1 error\n" + "Authentication failed.";
 
 	public void login(String userName, String password) {
 		txtEmail.sendKeys(userName);

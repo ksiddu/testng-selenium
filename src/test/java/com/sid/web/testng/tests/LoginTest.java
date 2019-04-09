@@ -1,17 +1,13 @@
 package com.sid.web.testng.tests;
 
 import org.testng.annotations.Test;
-
-import com.sid.web.testng.pages.*;
+import com.sid.web.testng.core.BaseTest;
 
 public class LoginTest extends BaseTest {
 
 	@Test
 	public void validLogin() {
-		//HomePage homePage = new HomePage(driver);
-		//LoginPage loginPage = new LoginPage(driver);
-		//DashBoardPage dashBoardPage = new DashBoardPage(driver);
-		// Click on sign in link
+
 		String loginUrl = prop.getValue("login_url");
 		pages.homePage.goToUrl(loginUrl);
 

@@ -1,4 +1,4 @@
-package com.sid.web.testng.tests;
+package com.sid.web.testng.core;
 
 import org.openqa.selenium.WebDriver;
 

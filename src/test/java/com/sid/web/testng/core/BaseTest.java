@@ -1,8 +1,9 @@
-package com.sid.web.testng.tests;
+package com.sid.web.testng.core;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+
 import com.sid.web.testng.utils.BrowserFactory;
 import com.sid.web.testng.utils.PropertyUtil;
 
