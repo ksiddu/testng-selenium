@@ -7,6 +7,9 @@ public class LoginTest extends BaseTest {
 
 	@Test
 	public void validLogin() {
+		
+		long id = Thread.currentThread().getId();
+		System.out.println("LoginTest Class. Thread id is: " + id);
 
 		String loginUrl = prop.getValue("login_url");
 		pages.homePage.goToUrl(loginUrl);

@@ -7,7 +7,9 @@ import java.util.concurrent.TimeUnit;
 import org.apache.logging.log4j.LogManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.CapabilityType;
 
 public class BrowserFactory {
 	private static final org.apache.logging.log4j.Logger logger = LogManager
@@ -23,6 +25,13 @@ public class BrowserFactory {
 		if (browserType.contentEquals("chrome")) {
 			driverPath = getPlatformSpecificDriverPath();
 			System.setProperty("webdriver.chrome.driver", driverPath);
+
+			//ChromeOptions options = new ChromeOptions();
+			//options.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+			//options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
+			//options.addArguments("--disable-notifications");
+
+			//driver = new ChromeDriver(options);
 			driver = new ChromeDriver();
 		} else if (browserType.contentEquals("firefox")) {
 			s = s + "/exefiles/mac/geckodriver";
@@ -34,8 +43,8 @@ public class BrowserFactory {
 		System.out.println("Browser Selected for testing " + browserType);
 		System.out.println("Browser Driver path " + driverPath);
 		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		//driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 
 		return driver;
 

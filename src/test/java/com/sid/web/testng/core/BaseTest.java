@@ -16,7 +16,8 @@ public abstract class BaseTest {
 	public void setup() {
 
 		// Create a Chrome driver. All test classes use this.
-
+		long id = Thread.currentThread().getId();
+		System.out.println("setup() method. Thread id is: " + id);
 		try {
 			driver = BrowserFactory.getDriver("chrome");
 			pages = new Pages(driver);
