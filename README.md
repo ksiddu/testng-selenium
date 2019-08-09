@@ -15,3 +15,7 @@ This is a Selenium TestNG framework project
 
 6.BrowserFactory - To get the type of browser(chrome, firefox etc.)
 
+Driver details:
+1. chrome driver
+Use the below link to check the latest chrome driver supported by your chrome browser
+https://chromedriver.chromium.org/downloads
