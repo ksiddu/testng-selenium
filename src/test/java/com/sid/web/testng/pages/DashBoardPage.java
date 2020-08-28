@@ -14,7 +14,7 @@ public class DashBoardPage extends BasePage {
 		// TODO Auto-generated constructor stub
 	}
 
-	@FindBy(css = ".logout")
+	@FindBy(xpath = "//a[@href='/logout']")
 	private WebElement linkLogout;
 
 	@FindBy(css = ".account")

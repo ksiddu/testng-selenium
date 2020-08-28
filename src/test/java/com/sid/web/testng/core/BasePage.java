@@ -9,6 +9,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import com.sid.web.testng.utils.PropertyUtil;
+
 public abstract class BasePage {
 	protected WebDriver driver;
 	protected WebDriverWait wait;
@@ -16,6 +18,7 @@ public abstract class BasePage {
 	private static final int TIMEOUT = 10;
 	private static final int POLLING = 100;
 	private static final int PAGE_LOAD_TIMEOUT = 30;
+	protected PropertyUtil prop = new PropertyUtil("src/test/resources/config.properties");
 
 	public BasePage(WebDriver driver) {
 		this.driver = driver;
@@ -76,4 +79,8 @@ public abstract class BasePage {
 		Assert.assertEquals(ele.getText(), text);
 	}
 
+	public void verifyHeader(String expectedText) {
+		String actualText = driver.findElement(By.cssSelector(".example h2")).getText().trim();
+		Assert.assertEquals(actualText, expectedText);
+	}
 }

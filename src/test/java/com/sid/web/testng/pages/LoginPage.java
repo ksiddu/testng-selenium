@@ -15,31 +15,33 @@ public class LoginPage extends BasePage {
 		// TODO Auto-generated constructor stub
 	}
 
-	@FindBy(id = "email")
+	@FindBy(css = ".example h2")
+	private WebElement headerLogInPage;
+
+	@FindBy(id = "username")
 	private WebElement txtEmail;
 
-	@FindBy(id = "passwd")
+	@FindBy(id = "password")
 	private WebElement txtPassword;
 
-	@FindBy(id = "SubmitLogin")
-	private WebElement btnSignIn;
+	@FindBy(className = "radius")
+	private WebElement btnLogIn;
 
-	@FindBy(css = ".center_column > .alert.alert-danger")
+	@FindBy(id = "flash-messages")
 	private WebElement eleErrorMsg;
 
-	String expectedAuthFailMsg = "There is 1 error\n" + "Authentication failed.";
+	String expectedAuthFailMsg = "Your username is invalid!";
 
 	public void login(String userName, String password) {
 		txtEmail.sendKeys(userName);
 		txtPassword.sendKeys(password);
-		wait.until(ExpectedConditions.elementToBeClickable(btnSignIn));
-		btnSignIn.click();
+		wait.until(ExpectedConditions.elementToBeClickable(btnLogIn));
+		btnLogIn.click();
 
 	}
 
 	public void verifyErrorMsg(String message) {
-		Assert.assertEquals(eleErrorMsg.getText(), message);
-
+		Assert.assertTrue(eleErrorMsg.getText().trim().contains(message));
 	}
 
 }

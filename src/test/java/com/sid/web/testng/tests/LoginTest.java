@@ -7,25 +7,24 @@ public class LoginTest extends BaseTest {
 
 	@Test
 	public void validLogin() {
-		
+
 		long id = Thread.currentThread().getId();
 		System.out.println("LoginTest Class. Thread id is: " + id);
 
-		String loginUrl = prop.getValue("login_url");
+		String loginUrl = prop.getValue("test_url");
 		pages.homePage.goToUrl(loginUrl);
 
 		pages.homePage.verifyTitle(prop.getValue("homepage_title"));
 
-		pages.homePage.clickSignInLink();
-		pages.loginPage.verifyTitle(prop.getValue("loginpage_title"));
+		pages.homePage.clickLogInLink();
+		pages.loginPage.verifyHeader(prop.getValue("loginpage_title"));
 
-		pages.loginPage.login(prop.getValue("email"), prop.getValue("password"));
+		pages.loginPage.login(prop.getValue("username"), prop.getValue("password"));
 
-		pages.dashBoardPage.verifyTitle(prop.getValue("dashboardpage_title"));
-		pages.dashBoardPage.verifyUserName(prop.getValue("username"));
+		pages.dashBoardPage.verifyHeader(prop.getValue("dashboardpage_title"));
 
 		pages.dashBoardPage.logout();
-		pages.loginPage.verifyTitle(prop.getValue("loginpage_title"));
+		pages.loginPage.verifyHeader(prop.getValue("loginpage_title"));
 
 	}
 }
