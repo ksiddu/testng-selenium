@@ -13,11 +13,11 @@ public class HomePage extends BasePage {
 		// TODO Auto-generated constructor stub
 	}
 
-	@FindBy(linkText = "Sign in")
-	private WebElement linkSignIn;
+	@FindBy(linkText = "Form Authentication")
+	private WebElement linkLogIn;
 
-	public void clickSignInLink() {
-		linkSignIn.click();
+	public void clickLogInLink() {
+		linkLogIn.click();
 	}
 
 }
